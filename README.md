@@ -1,1 +1,2 @@
-# k8s-workshop-qa
+# Kubernetes workshop for test engineers
+
