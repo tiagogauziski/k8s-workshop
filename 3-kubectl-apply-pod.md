@@ -50,7 +50,7 @@ Let's try again now:
 kubectl apply -f .
 
 # Output
-# pod/nginx created
+# pod/tiago created
 ```
 
 Great, we have our `Pod` created via our manifest file. Lets have a look:
@@ -61,5 +61,5 @@ kubectl get pods -n tiago
 
 # Output
 # NAME    READY   STATUS    RESTARTS   AGE
-# nginx   1/1     Running   0          5m29s
+# tiago   1/1     Running   0          5m29s
 ```
