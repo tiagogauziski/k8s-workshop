@@ -10,7 +10,7 @@ Let's create a `Deployment` manifest file in our folder (let's name it `deployme
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: tiago
+  name: my-deployment
   namespace: tiago
   labels:
     app: nginx
@@ -38,8 +38,8 @@ Let's apply the manifest:
 kubectl apply -f . -n tiago
 
 # Output
-# deployment.apps/tiago created
-# pod/tiago unchanged
+# deployment.apps/my-deployment created
+# pod/my-pod unchanged
 ```
 
 Let's check the `Pod` created by the `Deployment`:
@@ -47,11 +47,11 @@ Let's check the `Pod` created by the `Deployment`:
 kubectl get pod -n tiago
 
 # Output
-# NAME                     READY   STATUS    RESTARTS   AGE
-# tiago                    1/1     Running   0          5m
-# tiago-647677fc66-5cnd4   1/1     Running   0          4m5s
-# tiago-647677fc66-mgxc5   1/1     Running   0          4m5s
-# tiago-647677fc66-pwf4q   1/1     Running   0          4m5s
+# NAME                            READY   STATUS    RESTARTS   AGE
+# my-pod                          1/1     Running   0          5m
+# my-depoyment-647677fc66-5cnd4   1/1     Running   0          4m5s
+# my-depoyment-647677fc66-mgxc5   1/1     Running   0          4m5s
+# my-depoyment-647677fc66-pwf4q   1/1     Running   0          4m5s
 ```
 
 You may note that we have additional pods, with the name of our deployment plus some additional values.
@@ -62,7 +62,7 @@ kubectl get deployments -n tiago
 
 # Output
 # kubectl get deployments -n tiago
-# NAME    READY   UP-TO-DATE   AVAILABLE   AGE
-# tiago   3/3     3            3           6m6s
+# NAME            READY   UP-TO-DATE   AVAILABLE   AGE
+# my-deployment   3/3     3            3           6m6s
 ```
 

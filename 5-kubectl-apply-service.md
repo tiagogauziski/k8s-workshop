@@ -8,7 +8,7 @@ Let's create a `Service` manifest file in our folder (let's name it `service.yam
 apiVersion: v1
 kind: Service
 metadata:
-  name: tiago
+  name: my-service
   namespace: tiago
 spec:
   type: LoadBalancer
@@ -27,9 +27,9 @@ Let's apply the manifest:
 kubectl apply -f . -n tiago
 
 # Output
-# deployment.apps/tiago created
-# pod/tiago unchanged
-# service/tiago created
+# deployment.apps/my-deployment created
+# pod/my-pod unchanged
+# service/my-service created
 ```
 
 Let's have a look at the `Service` we just created:
@@ -37,8 +37,8 @@ Let's have a look at the `Service` we just created:
 kubectl get service -n tiago
 
 # Output
-# NAME    TYPE           CLUSTER-IP   EXTERNAL-IP      PORT(S)        AGE
-# tiago   LoadBalancer   10.0.16.2    172.204.41.183   80:32345/TCP   8m45s
+# NAME         TYPE           CLUSTER-IP   EXTERNAL-IP      PORT(S)        AGE
+# my-service   LoadBalancer   10.0.16.2    172.204.41.183   80:32345/TCP   8m45s
 ```
 
 You may have noticed we have an value on the `EXTERNAL-IP` column. If you open that IP address on your browser, you should be able to access the service:

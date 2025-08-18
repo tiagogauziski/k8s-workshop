@@ -11,7 +11,7 @@ So now, we need to create a file named `pod.yaml` and write the following conten
 apiVersion: v1
 kind: Pod
 metadata:
-  name: tiago
+  name: my-pod
   namespace: tiago
 spec:
   containers:
@@ -50,7 +50,7 @@ Let's try again now:
 kubectl apply -f .
 
 # Output
-# pod/tiago created
+# pod/my-pod created
 ```
 
 Great, we have our `Pod` created via our manifest file. Lets have a look:
@@ -60,6 +60,6 @@ Great, we have our `Pod` created via our manifest file. Lets have a look:
 kubectl get pods -n tiago
 
 # Output
-# NAME    READY   STATUS    RESTARTS   AGE
-# tiago   1/1     Running   0          5m29s
+# NAME     READY   STATUS    RESTARTS   AGE
+# my-pod   1/1     Running   0          5m29s
 ```
