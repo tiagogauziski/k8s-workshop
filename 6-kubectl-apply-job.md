@@ -31,7 +31,7 @@ spec:
 ```
 > Reference: https://kubernetes.io/docs/concepts/workloads/controllers/job/
 
-# Apply the manifest
+## Apply the manifest
 Let's apply the manifest:
 ```pwsh
 kubectl apply -f . -n tiago
@@ -41,4 +41,38 @@ kubectl apply -f . -n tiago
 # job.batch/my-job created
 # pod/my-pod unchanged
 # service/my-service unchanged
+```
+
+How do we know the Job status? Let's check!
+```pwsh
+kubectl get jobs -n tiago
+
+# Output
+# NAME     STATUS     COMPLETIONS   DURATION   AGE
+# my-job   Complete   1/1           8s         14s
+```
+
+## `kubectl logs`
+So we run a `Job` to completion. How can we check the execution logs?
+
+We can use `kubectl logs` to solve this problem.
+
+We need to follow these steps:
+- Get the `Pod` name that represents the `Job` execution
+- Get logs of the `Pod`
+
+```pwsh
+# Let's get the `Pod`
+kubectl get pods -n tiago
+
+# Output
+# NAME                             READY   STATUS      RESTARTS   AGE
+# my-pod                           1/1     Running     0          17m
+# my-deployment-647677fc66-8mthb   1/1     Running     0          17m
+# my-deployment-647677fc66-mttqw   1/1     Running     0          17m
+# my-deployment-647677fc66-p5cck   1/1     Running     0          17m
+# my-job-85cd6                     0/1     Completed   0          13s
+
+# Grab the `Pod` name for the job, lets run the second command
+kubectl logs my-job-85cd6 -n tiago
 ```

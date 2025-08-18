@@ -11,4 +11,4 @@ WORKDIR /app
 COPY --from=build /app .
 
 # Run tests
-CMD ["dotnet", "test"]
+CMD ["dotnet", "test", "--no-restore"]

@@ -12,7 +12,6 @@ spec:
       containers:
       - name: tests
         image: ghcr.io/tiagogauziski/k8s-workshop/k8s-workshop-test-project:latest
-        command: ["dotnet",  "test"]
         env:
         - name: TEST_ENDPOINT
           value: "http://my-service.tiago.svc.cluster.local:80/" # <service-name>.<namespace>.svc.cluster.local
