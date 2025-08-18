@@ -23,7 +23,6 @@ spec:
       containers:
       - name: tests
         image: ghcr.io/tiagogauziski/k8s-workshop/k8s-workshop-test-project:latest
-        command: ["dotnet",  "test"]
         env:
         - name: TEST_ENDPOINT
           value: "http://my-service.tiago.svc.cluster.local:80/" # <service-name>.<namespace>.svc.cluster.local
@@ -75,4 +74,12 @@ kubectl get pods -n tiago
 
 # Grab the `Pod` name for the job, lets run the second command
 kubectl logs my-job-85cd6 -n tiago
+
+# Output
+# VSTest version 17.14.1 (x64)
+# 
+# Starting test execution, please wait...
+# A total of 1 test files matched the specified pattern.
+# 
+# Passed!  - Failed:     0, Passed:     1, Skipped:     0, Total:     1, Duration: 48 ms - K8sWorkshopTestProject.dll (net9.0)
 ```
