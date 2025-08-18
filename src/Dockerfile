@@ -11,4 +11,4 @@ WORKDIR /app
 COPY --from=build /app .
 
 # Run tests
-CMD ["dotnet", "test", "./K8sWorkshopTestProject.dll"]
+CMD ["dotnet", "test", "K8sWorkshopTestProject.dll"]
